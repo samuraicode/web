@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IsItOut - Movie Release Countdown Tracker</title>
+    <meta name="description" content="Never miss another movie release! Track upcoming films with live countdowns, discover new releases, and get notified when they're out.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeremy.github.io/isitout/">
+    <meta property="og:title" content="IsItOut - Movie Release Countdown Tracker">
+    <meta property="og:description" content="Never miss another movie release! Track upcoming films with live countdowns, discover new releases, and get notified when they're out.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://jeremy.github.io/isitout/">
+    <meta property="twitter:title" content="IsItOut - Movie Release Countdown Tracker">
+    <meta property="twitter:description" content="Never miss another movie release! Track upcoming films with live countdowns, discover new releases, and get notified when they're out.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 2rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease;
+            margin: 10px;
+        }
+
+        .app-store-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .coming-soon {
+            background: #f8f9fa;
+            color: #666;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .screenshots {
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .screenshots h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .phone-mockup {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .phone-screen {
+            width: 250px;
+            height: 500px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-screen::before {
+            content: "📱";
+            font-size: 4rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.3;
+        }
+
+        footer {
+            background: rgba(0,0,0,0.1);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .privacy-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .privacy-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .phone-screen {
+                width: 200px;
+                height: 400px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">🎬 IsItOut</div>
+            <div class="tagline">Movie Release Countdown Tracker</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Never Miss Another Movie Release</h1>
+            <p>Track upcoming films with live countdowns, discover new releases, and get notified exactly when they're available. Your ultimate cinema companion!</p>
+
+            <!-- Replace with actual App Store link when live -->
+            <div class="coming-soon">Coming Soon to the App Store</div>
+            <!--
+            <a href="#" class="app-store-button">📱 Download on the App Store</a>
+            -->
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">⏰</div>
+                <h3>Live Countdowns</h3>
+                <p>See exactly when movies release with real-time countdown timers showing days, hours, and minutes remaining.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🔍</div>
+                <h3>Smart Movie Search</h3>
+                <p>Search thousands of upcoming movies with rich details including cast, crew, ratings, and plot summaries.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📝</div>
+                <h3>Personal Watchlist</h3>
+                <p>Create your personal movie watchlist and track which films you're most excited to see.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🏠</div>
+                <h3>Home Screen Widgets</h3>
+                <p>Keep track of your movie countdowns right on your home screen with interactive widgets.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h3>Discovery Features</h3>
+                <p>Explore popular upcoming movies releasing in the next 90 days and discover your next favorite film.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">✨</div>
+                <h3>Rich Movie Details</h3>
+                <p>Access comprehensive movie information powered by The Movie Database with high-quality posters and data.</p>
+            </div>
+        </section>
+
+        <section class="screenshots">
+            <h2>Beautiful Design, Powerful Features</h2>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <span>Movie List<br>Countdown View</span>
+                </div>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <span>Movie Search<br>& Discovery</span>
+                </div>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <span>Detailed Movie<br>Information</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 IsItOut. Built with ❤️ for movie lovers.</p>
+            <div style="margin-top: 1rem;">
+                <a href="privacy-policy.html" class="privacy-link">Privacy Policy</a>
+                <a href="mailto:jeremy@samuraicode.com" class="privacy-link">Contact</a>
+                <a href="https://samuraicode.com" class="privacy-link">SamuraiCode</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Analytics (optional) -->
+    <script>
+        // Add your analytics code here if needed
+        console.log('IsItOut - Movie Release Tracker');
+    </script>
+</body>
+</html>
