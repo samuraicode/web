@@ -28,195 +28,184 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1a1a1a;
+            background: #ffffff;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         header {
-            padding: 2rem 0;
+            padding: 4rem 0 2rem;
             text-align: center;
-            color: white;
         }
 
         .logo {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
         }
 
         .tagline {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 3rem;
         }
 
         .hero {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             text-align: center;
+            padding: 3rem 0 4rem;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: #666;
-            margin-bottom: 2rem;
-            max-width: 600px;
+            margin-bottom: 2.5rem;
+            max-width: 640px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 400;
         }
 
         .app-store-button {
             display: inline-block;
             background: #000;
             color: white;
-            padding: 15px 30px;
-            border-radius: 12px;
+            padding: 16px 48px;
+            border-radius: 100px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: transform 0.2s ease;
-            margin: 10px;
+            transition: all 0.2s ease;
+            letter-spacing: -0.01em;
         }
 
         .app-store-button:hover {
-            transform: translateY(-2px);
-        }
-
-        .coming-soon {
-            background: #f8f9fa;
-            color: #666;
-            padding: 15px 30px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin: 10px;
-            display: inline-block;
+            background: #333;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
 
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem 2rem;
+            padding: 5rem 0;
         }
 
         .feature {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
+            padding: 0 1rem;
         }
 
         .feature-icon {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: block;
         }
 
         .feature h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
+            font-size: 1.375rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
         .feature p {
             color: #666;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
         .screenshots {
             text-align: center;
-            margin: 4rem 0;
+            padding: 4rem 0 5rem;
+            background: #fafafa;
+            margin-top: 3rem;
         }
 
         .screenshots h2 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
         }
 
         .phone-mockup {
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
             display: inline-block;
-            margin: 10px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            margin: 0 1rem 2rem;
         }
 
         .phone-screen {
-            width: 250px;
-            height: 500px;
-            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-weight: 600;
-            position: relative;
+            width: 270px;
+            height: auto;
+            border-radius: 24px;
             overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            background: #000;
         }
 
-        .phone-screen::before {
-            content: "📱";
-            font-size: 4rem;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.3;
+        .phone-screen img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         footer {
-            background: rgba(0,0,0,0.1);
-            color: white;
+            background: #fafafa;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
+            padding: 3rem 0;
+            margin-top: 0;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.95rem;
         }
 
         .privacy-link {
-            color: rgba(255,255,255,0.8);
+            color: #666;
             text-decoration: none;
             margin: 0 1rem;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
         }
 
         .privacy-link:hover {
-            color: white;
-            text-decoration: underline;
+            color: #000;
         }
 
         @media (max-width: 768px) {
             .logo {
-                font-size: 2.5rem;
+                font-size: 3rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
             }
 
             .hero h1 {
                 font-size: 2rem;
+                margin-bottom: 1rem;
             }
 
             .hero p {
@@ -224,12 +213,26 @@
             }
 
             .phone-screen {
-                width: 200px;
-                height: 400px;
+                width: 220px;
+            }
+
+            .phone-mockup {
+                margin: 0 0.5rem 1.5rem;
             }
 
             .features {
                 grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 3rem 0;
+            }
+
+            .app-store-button {
+                padding: 14px 40px;
+                font-size: 1rem;
+            }
+
+            .screenshots h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -245,13 +248,9 @@
     <main class="container">
         <section class="hero">
             <h1>Never Miss Another Movie Release</h1>
-            <p>Track upcoming films with live countdowns, discover new releases, and get notified exactly when they're available. Your ultimate cinema companion!</p>
+            <p>Track upcoming films with live countdowns, discover new releases, and get notified exactly when they're available. Your ultimate cinema companion.</p>
 
-            <!-- Replace with actual App Store link when live -->
-            <div class="coming-soon">Coming Soon to the App Store</div>
-            <!--
-            <a href="#" class="app-store-button">📱 Download on the App Store</a>
-            -->
+            <a href="https://apps.apple.com/us/app/isitout/id6752792124?uo=4" class="app-store-button">Download on the App Store</a>
         </section>
 
         <section class="features">
@@ -296,17 +295,17 @@
             <h2>Beautiful Design, Powerful Features</h2>
             <div class="phone-mockup">
                 <div class="phone-screen">
-                    <span>Movie List<br>Countdown View</span>
+                    <img src="images/screenshot-watchlist.png" alt="Movie watchlist with countdown timers">
                 </div>
             </div>
             <div class="phone-mockup">
                 <div class="phone-screen">
-                    <span>Movie Search<br>& Discovery</span>
+                    <img src="images/screenshot-search.png" alt="Search and add movies">
                 </div>
             </div>
             <div class="phone-mockup">
                 <div class="phone-screen">
-                    <span>Detailed Movie<br>Information</span>
+                    <img src="images/screenshot-upcoming.png" alt="Discover upcoming movies">
                 </div>
             </div>
         </section>
@@ -314,7 +313,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 IsItOut. Built with ❤️ for movie lovers.</p>
+            <p>&copy; 2025 IsItOut. Built for movie lovers.</p>
             <div style="margin-top: 1rem;">
                 <a href="privacy-policy.html" class="privacy-link">Privacy Policy</a>
                 <a href="mailto:jeremy@samuraicode.com" class="privacy-link">Contact</a>
@@ -322,11 +321,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Simple Analytics (optional) -->
-    <script>
-        // Add your analytics code here if needed
-        console.log('IsItOut - Movie Release Tracker');
-    </script>
 </body>
 </html>
