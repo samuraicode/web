@@ -3,20 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IsItOut - Movie Release Countdown Tracker</title>
-    <meta name="description" content="Never miss another movie release! Track upcoming films with live countdowns, discover new releases, and get notified when they're out.">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jeremy.github.io/isitout/">
-    <meta property="og:title" content="IsItOut - Movie Release Countdown Tracker">
-    <meta property="og:description" content="Never miss another movie release! Track upcoming films with live countdowns, discover new releases, and get notified when they're out.">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://jeremy.github.io/isitout/">
-    <meta property="twitter:title" content="IsItOut - Movie Release Countdown Tracker">
-    <meta property="twitter:description" content="Never miss another movie release! Track upcoming films with live countdowns, discover new releases, and get notified when they're out.">
+    <title>SamuraiCode - Apps</title>
+    <meta name="description" content="Apps by SamuraiCode. Crafted with care for iOS.">
 
     <style>
         * {
@@ -30,150 +18,90 @@
             line-height: 1.6;
             color: #1a1a1a;
             background: #ffffff;
-            min-height: 100vh;
+            min-height: 100dvh;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
         header {
-            padding: 4rem 0 2rem;
+            padding: 5rem 0 2rem;
             text-align: center;
         }
 
         .logo {
-            font-size: 4rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
+            text-wrap: balance;
         }
 
         .tagline {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: #666;
             font-weight: 400;
-            margin-bottom: 3rem;
+            text-wrap: pretty;
         }
 
-        .hero {
-            text-align: center;
-            padding: 3rem 0 4rem;
-            border-bottom: 1px solid #f0f0f0;
+        .apps {
+            padding: 4rem 0;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: #666;
-            margin-bottom: 2.5rem;
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 400;
-        }
-
-        .app-store-button {
-            display: inline-block;
-            background: #000;
-            color: white;
-            padding: 16px 48px;
-            border-radius: 100px;
+        .app-card {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 2.5rem;
+            border: 1px solid #f0f0f0;
+            border-radius: 20px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.2s ease;
-            letter-spacing: -0.01em;
-        }
-
-        .app-store-button:hover {
-            background: #333;
-            transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem 2rem;
-            padding: 5rem 0;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 0 1rem;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
+            color: inherit;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
             margin-bottom: 1.5rem;
-            display: block;
         }
 
-        .feature h3 {
-            font-size: 1.375rem;
-            margin-bottom: 0.75rem;
-            color: #1a1a1a;
+        .app-card:hover {
+            border-color: #ddd;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+
+        .app-icon {
+            font-size: 3.5rem;
+            flex-shrink: 0;
+        }
+
+        .app-info h2 {
+            font-size: 1.5rem;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            margin-bottom: 0.25rem;
+            text-wrap: balance;
         }
 
-        .feature p {
+        .app-info p {
             color: #666;
-            line-height: 1.7;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            text-wrap: pretty;
         }
 
-        .screenshots {
-            text-align: center;
-            padding: 4rem 0 5rem;
-            background: #fafafa;
-            margin-top: 3rem;
+        .app-arrow {
+            margin-left: auto;
+            color: #ccc;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: color 0.2s ease-out;
         }
 
-        .screenshots h2 {
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #1a1a1a;
-        }
-
-        .phone-mockup {
-            display: inline-block;
-            margin: 0 1rem 2rem;
-        }
-
-        .phone-screen {
-            width: 270px;
-            height: auto;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-            background: #000;
-        }
-
-        .phone-screen img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .app-card:hover .app-arrow {
+            color: #999;
         }
 
         footer {
-            background: #fafafa;
             text-align: center;
             padding: 3rem 0;
-            margin-top: 0;
             border-top: 1px solid #f0f0f0;
         }
 
@@ -182,57 +110,42 @@
             font-size: 0.95rem;
         }
 
-        .privacy-link {
+        .footer-link {
             color: #666;
             text-decoration: none;
             margin: 0 1rem;
             font-size: 0.95rem;
-            transition: color 0.2s ease;
+            transition: color 0.2s ease-out;
         }
 
-        .privacy-link:hover {
+        .footer-link:hover {
             color: #000;
         }
 
         @media (max-width: 768px) {
+            header {
+                padding: 3rem 0 1.5rem;
+            }
+
             .logo {
-                font-size: 3rem;
-            }
-
-            .tagline {
-                font-size: 1.1rem;
-            }
-
-            .hero h1 {
                 font-size: 2rem;
-                margin-bottom: 1rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .app-card {
+                padding: 1.5rem;
+                gap: 1.25rem;
             }
 
-            .phone-screen {
-                width: 220px;
+            .app-icon {
+                font-size: 2.5rem;
             }
 
-            .phone-mockup {
-                margin: 0 0.5rem 1.5rem;
+            .app-info h2 {
+                font-size: 1.25rem;
             }
 
-            .features {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                padding: 3rem 0;
-            }
-
-            .app-store-button {
-                padding: 14px 40px;
-                font-size: 1rem;
-            }
-
-            .screenshots h2 {
-                font-size: 1.5rem;
+            .app-info p {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -240,84 +153,31 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo">🎬 IsItOut</div>
-            <div class="tagline">Movie Release Countdown Tracker</div>
+            <div class="logo">SamuraiCode</div>
+            <div class="tagline">Apps crafted with care</div>
         </div>
     </header>
 
     <main class="container">
-        <section class="hero">
-            <h1>Never Miss Another Movie Release</h1>
-            <p>Track upcoming films with live countdowns, discover new releases, and get notified exactly when they're available. Your ultimate cinema companion.</p>
-
-            <a href="https://apps.apple.com/us/app/isitout/id6752792124?uo=4" class="app-store-button">Download on the App Store</a>
-        </section>
-
-        <section class="features">
-            <div class="feature">
-                <div class="feature-icon">⏰</div>
-                <h3>Live Countdowns</h3>
-                <p>See exactly when movies release with real-time countdown timers showing days, hours, and minutes remaining.</p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">🔍</div>
-                <h3>Smart Movie Search</h3>
-                <p>Search thousands of upcoming movies with rich details including cast, crew, ratings, and plot summaries.</p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">📝</div>
-                <h3>Personal Watchlist</h3>
-                <p>Create your personal movie watchlist and track which films you're most excited to see.</p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">🏠</div>
-                <h3>Home Screen Widgets</h3>
-                <p>Keep track of your movie countdowns right on your home screen with interactive widgets.</p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">🎯</div>
-                <h3>Discovery Features</h3>
-                <p>Explore popular upcoming movies releasing in the next 90 days and discover your next favorite film.</p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">✨</div>
-                <h3>Rich Movie Details</h3>
-                <p>Access comprehensive movie information powered by The Movie Database with high-quality posters and data.</p>
-            </div>
-        </section>
-
-        <section class="screenshots">
-            <h2>Beautiful Design, Powerful Features</h2>
-            <div class="phone-mockup">
-                <div class="phone-screen">
-                    <img src="images/screenshot-watchlist.png" alt="Movie watchlist with countdown timers">
+        <section class="apps">
+            <a href="isitout/" class="app-card">
+                <div class="app-icon">🎬</div>
+                <div class="app-info">
+                    <h2>IsItOut</h2>
+                    <p>Movie release countdown tracker. Never miss another release.</p>
                 </div>
-            </div>
-            <div class="phone-mockup">
-                <div class="phone-screen">
-                    <img src="images/screenshot-search.png" alt="Search and add movies">
-                </div>
-            </div>
-            <div class="phone-mockup">
-                <div class="phone-screen">
-                    <img src="images/screenshot-upcoming.png" alt="Discover upcoming movies">
-                </div>
-            </div>
+                <div class="app-arrow">&rsaquo;</div>
+            </a>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 IsItOut. Built for movie lovers.</p>
+            <p>&copy; 2026 SamuraiCode</p>
             <div style="margin-top: 1rem;">
-                <a href="privacy-policy.html" class="privacy-link">Privacy Policy</a>
-                <a href="mailto:jeremy@samuraicode.com" class="privacy-link">Contact</a>
-                <a href="http://samuraicode.com" class="privacy-link">SamuraiCode</a>
+                <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                <a href="mailto:jeremy@samuraicode.com" class="footer-link">Contact</a>
+                <a href="http://samuraicode.com" class="footer-link">SamuraiCode</a>
             </div>
         </div>
     </footer>
