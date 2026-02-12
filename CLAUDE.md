@@ -11,6 +11,8 @@ SamuraiCode multi-app portfolio website. Static HTML pages with embedded CSS, no
 - `index.html` - Homepage listing all apps with links to individual app pages
 - `isitout/index.html` - IsItOut app landing page (movie release countdown tracker)
 - `isitout/privacy-policy.html` - IsItOut privacy policy
+- `scoreitquick/index.html` - ScoreItQuick app landing page (game score tracker)
+- `scoreitquick/privacy-policy.html` - ScoreItQuick privacy policy
 - `images/` - App screenshots (referenced from app pages via `../images/`)
 - No build process, dependencies, or server-side code
 

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScoreItQuick - Score Games Quickly</title>
+    <meta name="description" content="The fastest way to keep score. Add players, track scores, and save games across iPhone, iPad, Mac, and Apple Vision Pro.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ScoreItQuick - Score Games Quickly">
+    <meta property="og:description" content="The fastest way to keep score. Add players, track scores, and save games across iPhone, iPad, Mac, and Apple Vision Pro.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="ScoreItQuick - Score Games Quickly">
+    <meta property="twitter:description" content="The fastest way to keep score. Add players, track scores, and save games across iPhone, iPad, Mac, and Apple Vision Pro.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            min-height: 100dvh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-wrap: balance;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            text-wrap: pretty;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0 4rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            line-height: 1.2;
+            text-wrap: balance;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            text-wrap: pretty;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 16px 48px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+
+        .app-store-button:hover {
+            background: #333;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem 2rem;
+            padding: 5rem 0;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature h3 {
+            font-size: 1.375rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+            font-weight: 600;
+            text-wrap: balance;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1rem;
+            text-wrap: pretty;
+        }
+
+        .screenshots {
+            text-align: center;
+            padding: 4rem 0 5rem;
+            background: #fafafa;
+            margin-top: 3rem;
+        }
+
+        .screenshots h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-wrap: balance;
+        }
+
+        .phone-mockup {
+            display: inline-block;
+            margin: 0 1rem 2rem;
+        }
+
+        .phone-screen {
+            width: 270px;
+            height: auto;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            background: #000;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .platforms {
+            text-align: center;
+            padding: 4rem 0;
+            background: #fafafa;
+            margin-top: 0;
+        }
+
+        .platforms h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-wrap: balance;
+        }
+
+        .platforms p {
+            color: #666;
+            font-size: 1.1rem;
+            text-wrap: pretty;
+        }
+
+        footer {
+            background: #fafafa;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 0;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .footer-link {
+            color: #666;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.95rem;
+            transition: color 0.2s ease-out;
+        }
+
+        .footer-link:hover {
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 3rem 0;
+            }
+
+            .app-store-button {
+                padding: 14px 40px;
+                font-size: 1rem;
+            }
+
+            .phone-screen {
+                width: 220px;
+            }
+
+            .phone-mockup {
+                margin: 0 0.5rem 1.5rem;
+            }
+
+            .screenshots h2 {
+                font-size: 1.5rem;
+            }
+
+            .platforms h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">ScoreItQuick</div>
+            <div class="tagline">Score Games Quickly</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>The Fastest Way to Keep Score</h1>
+            <p>Add players, track every point, and pick up right where you left off. Works on iPhone, iPad, Mac, and Apple Vision Pro.</p>
+
+            <a href="https://apps.apple.com/us/app/scoreitquick/id6759076325" class="app-store-button">Download on the App Store</a>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">&#9889;</div>
+                <h3>Instant Setup</h3>
+                <p>Add players and starting scores to get going in seconds. No accounts, no configuration, just tap and play.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">&#128221;</div>
+                <h3>Full Score History</h3>
+                <p>Every score change is logged so you can review the complete history of any game at a glance.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">&#128190;</div>
+                <h3>Save &amp; Restore</h3>
+                <p>Save games in progress and come back to them anytime. Track all the games you're playing across sessions.</p>
+            </div>
+        </section>
+    </main>
+
+    <section class="screenshots">
+        <div class="container">
+            <h2>See It in Action</h2>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="../images/scoreitquick/screenshot-3.png" alt="Game view with player scores">
+                </div>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="../images/scoreitquick/screenshot-1.png" alt="Quick score entry with tap buttons">
+                </div>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="../images/scoreitquick/screenshot-2.png" alt="Score change history log">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="platforms">
+        <div class="container">
+            <h2>Available Everywhere You Play</h2>
+            <p>iPhone, iPad, Mac, and Apple Vision Pro. Free with no data collected.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ScoreItQuick. Built for game night.</p>
+            <div style="margin-top: 1rem;">
+                <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                <a href="mailto:jeremy@samuraicode.com" class="footer-link">Contact</a>
+                <a href="../" class="footer-link">All Apps</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
