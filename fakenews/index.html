@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeNews - Parody News Video Maker</title>
+    <meta name="description" content="Star in your own breaking news. Drop your clip into a parody news broadcast, write the headlines, and share the laughs. For entertainment only.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FakeNews - Parody News Video Maker">
+    <meta property="og:description" content="Star in your own breaking news. Drop your clip into a parody news broadcast, write the headlines, and share the laughs.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="FakeNews - Parody News Video Maker">
+    <meta property="twitter:description" content="Star in your own breaking news. Drop your clip into a parody news broadcast, write the headlines, and share the laughs.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            min-height: 100dvh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-wrap: balance;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            text-wrap: pretty;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 0 4rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            line-height: 1.2;
+            text-wrap: balance;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            text-wrap: pretty;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 16px 48px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem 2rem;
+            padding: 5rem 0;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature h3 {
+            font-size: 1.375rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+            font-weight: 600;
+            text-wrap: balance;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1rem;
+            text-wrap: pretty;
+        }
+
+        .platforms {
+            text-align: center;
+            padding: 4rem 0;
+            background: #fafafa;
+            margin-top: 0;
+        }
+
+        .platforms h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-wrap: balance;
+        }
+
+        .platforms p {
+            color: #666;
+            font-size: 1.1rem;
+            text-wrap: pretty;
+        }
+
+        .disclaimer {
+            text-align: center;
+            padding: 2.5rem 0;
+        }
+
+        .disclaimer p {
+            color: #999;
+            font-size: 0.95rem;
+            max-width: 640px;
+            margin: 0 auto;
+            text-wrap: pretty;
+        }
+
+        footer {
+            background: #fafafa;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 0;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .footer-link {
+            color: #666;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.95rem;
+            transition: color 0.2s ease-out;
+        }
+
+        .footer-link:hover {
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 3rem 0;
+            }
+
+            .app-store-button {
+                padding: 14px 40px;
+                font-size: 1rem;
+            }
+
+            .platforms h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">FakeNews</div>
+            <div class="tagline">Breaking News. Totally Fake.</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Star in Your Own Breaking News</h1>
+            <p>Drop your clip into a parody news broadcast — anchors, chyrons, tickers, and all. Write the headline, hit export, and share the laughs.</p>
+
+            <span class="app-store-button">Coming Soon to the App Store</span>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">&#128250;</div>
+                <h3>Real Broadcast Feel</h3>
+                <p>Studio templates with anchors, live reports, and over-the-top graphics — all from the totally fictional FNN newsroom.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">&#127916;</div>
+                <h3>Your Clip Is the Story</h3>
+                <p>Insert a video or photo, trim it, and frame it right in the broadcast. Your cat, your kid, your golf swing — tonight's top story.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">&#9997;&#65039;</div>
+                <h3>Write the Headlines</h3>
+                <p>Edit the headline and the news ticker to sell the bit. The more serious it sounds, the funnier it gets.</p>
+            </div>
+        </section>
+    </main>
+
+    <section class="platforms">
+        <div class="container">
+            <h2>Free to Create</h2>
+            <p>iPhone. Free templates with a small watermark. A one-time Pro unlock gets clean HD exports and every template — no subscription, no data collected.</p>
+        </div>
+    </section>
+
+    <section class="disclaimer">
+        <div class="container">
+            <p>FakeNews is a parody app for entertainment. FNN is a fictional network, and videos made with FakeNews are comedy — not news.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 FakeNews. This just in: it's satire.</p>
+            <div style="margin-top: 1rem;">
+                <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                <a href="mailto:jeremy@samuraicode.com" class="footer-link">Contact</a>
+                <a href="../" class="footer-link">All Apps</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

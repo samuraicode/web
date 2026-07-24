@@ -13,6 +13,8 @@ SamuraiCode multi-app portfolio website. Static HTML pages with embedded CSS, no
 - `isitout/privacy-policy.html` - IsItOut privacy policy
 - `scoreitquick/index.html` - ScoreItQuick app landing page (game score tracker)
 - `scoreitquick/privacy-policy.html` - ScoreItQuick privacy policy
+- `fakenews/index.html` - FakeNews app landing page (parody news video maker)
+- `fakenews/privacy-policy.html` - FakeNews privacy policy
 - `images/` - App screenshots (referenced from app pages via `../images/`)
 - No build process, dependencies, or server-side code
 
