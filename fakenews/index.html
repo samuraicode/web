@@ -8,13 +8,17 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samuraicode.com/fakenews/">
     <meta property="og:title" content="FakeNews - Parody News Video Maker">
     <meta property="og:description" content="Star in your own breaking news. Drop your clip into a parody news broadcast, write the headlines, and share the laughs.">
+    <meta property="og:image" content="https://samuraicode.com/images/fakenews/screenshot-1.png">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
+    <!-- Twitter. "summary", not "summary_large_image": the only art here is a
+         phone screenshot, and the wide card crops a 9:19.5 image to ribbons. -->
+    <meta property="twitter:card" content="summary">
     <meta property="twitter:title" content="FakeNews - Parody News Video Maker">
     <meta property="twitter:description" content="Star in your own breaking news. Drop your clip into a parody news broadcast, write the headlines, and share the laughs.">
+    <meta property="twitter:image" content="https://samuraicode.com/images/fakenews/screenshot-1.png">
 
     <style>
         * {
@@ -92,6 +96,13 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+
+        .app-store-button:hover {
+            background: #333;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
 
         .features {
@@ -181,6 +192,15 @@
             color: #666;
             font-size: 1.1rem;
             text-wrap: pretty;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* Second shot at the download for anyone who scrolled the
+           screenshots — most arrivals come off a shared video and land
+           here already knowing what the app does. */
+        .platforms .app-store-button {
+            margin-top: 2.5rem;
         }
 
         .disclaimer {
@@ -281,7 +301,7 @@
             <h1>Star in Your Own Breaking News</h1>
             <p>Drop your clip into a parody news broadcast — anchors, chyrons, tickers, and all. Write the headline, hit export, and share the laughs.</p>
 
-            <span class="app-store-button">Coming Soon to the App Store</span>
+            <a href="https://apps.apple.com/us/app/id6789356182" class="app-store-button">Download on the App Store</a>
         </section>
 
         <section class="features">
@@ -329,7 +349,8 @@
     <section class="platforms">
         <div class="container">
             <h2>Free to Create</h2>
-            <p>iPhone. Free templates with a small watermark. A one-time Pro unlock gets clean HD exports and every template — no subscription, no data collected.</p>
+            <p>iPhone. Free templates with a small watermark. A one-time Pro unlock gets clean HD exports and every template — no subscription, no ads, and your photos and videos never leave your phone.</p>
+            <a href="https://apps.apple.com/us/app/id6789356182" class="app-store-button">Download on the App Store</a>
         </div>
     </section>
 
