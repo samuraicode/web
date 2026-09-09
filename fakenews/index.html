@@ -301,7 +301,7 @@
             <h1>Star in Your Own Breaking News</h1>
             <p>Drop your clip into a parody news broadcast — anchors, chyrons, tickers, and all. Write the headline, hit export, and share the laughs.</p>
 
-            <a href="https://apps.apple.com/us/app/id6789356182" class="app-store-button">Download on the App Store</a>
+            <a href="https://apps.apple.com/app/apple-store/id6789356182?pt=635609&amp;ct=web&amp;mt=8" class="app-store-button">Download on the App Store</a>
         </section>
 
         <section class="features">
@@ -350,7 +350,7 @@
         <div class="container">
             <h2>Free to Create</h2>
             <p>iPhone. Free templates with a small watermark. A one-time Pro unlock gets clean HD exports and every template — no subscription, no ads, and your photos and videos never leave your phone.</p>
-            <a href="https://apps.apple.com/us/app/id6789356182" class="app-store-button">Download on the App Store</a>
+            <a href="https://apps.apple.com/app/apple-store/id6789356182?pt=635609&amp;ct=web&amp;mt=8" class="app-store-button">Download on the App Store</a>
         </div>
     </section>
 
@@ -370,5 +370,16 @@
             </div>
         </div>
     </footer>
+<script>
+    // The app's free-export end card reads "samuraicode.com/fakenews", so a
+    // visitor who typed the address (no referrer) almost certainly came from
+    // a shared video. Credit those installs to the end-card campaign; anyone
+    // who followed a link stays under "web".
+    if (!document.referrer) {
+        document.querySelectorAll('.app-store-button').forEach(function (a) {
+            a.href = a.href.replace('ct=web', 'ct=end-card');
+        });
+    }
+</script>
 </body>
 </html>
