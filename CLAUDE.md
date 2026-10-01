@@ -17,6 +17,7 @@ SamuraiCode multi-app portfolio website. Static HTML pages with embedded CSS, no
 - `fakenews/privacy-policy.html` - FakeNews privacy policy
 - `images/` - App screenshots (referenced from app pages via `../images/`)
 - `favicon.svg` - Site icon, linked from every page
+- `_share-images/` - Templates and script for the `images/og-*.png` share images (`python3 _share-images/make.py`; not published, Jekyll skips `_` folders)
 - No build process, dependencies, or server-side code
 
 ## Development Workflow
