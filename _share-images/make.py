@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Render the 1200x630 share images in images/og-*.png, plus apple-touch-icon.png
-and the web app manifest icons, with headless Chrome.
+"""Render the 1200x630 share images in images/og-*.png, the 1000x1500 Pinterest
+pins in images/pin-*.png, apple-touch-icon.png and the web app manifest icons,
+with headless Chrome.
 
 Run from anywhere: python3 _share-images/make.py
 Set CHROME to use a Chrome binary other than the macOS default.
@@ -49,3 +50,6 @@ with tempfile.TemporaryDirectory() as tmp:
     for slug, name, emoji, headline, shot in APPS:
         html = fill('app.html', root=ROOT, slug=slug, name=name, emoji=emoji, headline=headline, shot=shot)
         render(html, os.path.join(ROOT, f'images/og-{slug}.png'), tmp)
+
+        html = fill('pin.html', root=ROOT, slug=slug, name=name, emoji=emoji, headline=headline, shot=shot)
+        render(html, os.path.join(ROOT, f'images/pin-{slug}.png'), tmp, size='1000,1500')
