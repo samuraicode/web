@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
     <title>ScoreItQuickly - Score Games Quickly</title>
+    <link rel="canonical" href="https://samuraicode.com/scoreitquick/">
     <meta name="description" content="The fastest way to keep score. Built-in scoring for Flip 7, Wingspan, Finspan, Wyrmspan, Yahtzee, and more, or go free-form with Custom Game. For iPhone and iPad.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samuraicode.com/scoreitquick/">
     <meta property="og:title" content="ScoreItQuickly - Score Games Quickly">
     <meta property="og:description" content="The fastest way to keep score. Built-in scoring for Flip 7, Wingspan, Finspan, Wyrmspan, Yahtzee, and more, or go free-form with Custom Game. For iPhone and iPad.">
+    <meta property="og:image" content="https://samuraicode.com/images/scoreitquick/screenshot-1.png">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:card" content="summary">
     <meta property="twitter:title" content="ScoreItQuickly - Score Games Quickly">
     <meta property="twitter:description" content="The fastest way to keep score. Built-in scoring for Flip 7, Wingspan, Finspan, Wyrmspan, Yahtzee, and more, or go free-form with Custom Game. For iPhone and iPad.">
+    <meta property="twitter:image" content="https://samuraicode.com/images/scoreitquick/screenshot-1.png">
 
     <style>
         * {
@@ -37,29 +42,83 @@
             padding: 0 24px;
         }
 
-        header {
-            padding: 4rem 0 2rem;
-            text-align: center;
+        a {
+            color: inherit;
         }
 
-        .logo {
-            font-size: 4rem;
+        :focus-visible {
+            outline: 2px solid #1a1a1a;
+            outline-offset: 3px;
+        }
+
+        .site-header {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .wordmark {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-wrap: balance;
+            font-size: 1.125rem;
+            text-decoration: none;
         }
 
-        .tagline {
-            font-size: 1.25rem;
+        .wordmark img {
+            display: block;
+        }
+
+        .site-nav a {
             color: #666;
-            font-weight: 400;
-            margin-bottom: 3rem;
-            text-wrap: pretty;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease-out;
+        }
+
+        .site-nav a:hover {
+            color: #1a1a1a;
+        }
+
+        .app-id {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .app-icon {
+            display: grid;
+            place-items: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            background: #f4f4f4;
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .app-id p {
+            color: #666;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .app-id strong {
+            color: #1a1a1a;
+            font-weight: 600;
         }
 
         .hero {
             text-align: center;
-            padding: 3rem 0 4rem;
+            padding: 5rem 0 4rem;
             border-bottom: 1px solid #f0f0f0;
         }
 
@@ -105,18 +164,23 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 3rem 2rem;
+        }
+
+        .features-section {
             padding: 5rem 0;
         }
 
-        .feature {
-            text-align: center;
-            padding: 0 1rem;
+        .section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
         }
 
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
+        .feature {
+            padding-top: 1.5rem;
+            border-top: 1px solid #ebebeb;
         }
 
         .feature h3 {
@@ -191,39 +255,39 @@
         }
 
         footer {
-            background: #fafafa;
-            text-align: center;
-            padding: 3rem 0;
-            margin-top: 0;
             border-top: 1px solid #f0f0f0;
+            padding: 2rem 0;
         }
 
-        footer p {
-            color: #666;
-            font-size: 0.95rem;
+        footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .footer-link {
+        footer p,
+        .footer-links a {
             color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
             text-decoration: none;
-            margin: 0 1rem;
-            font-size: 0.95rem;
             transition: color 0.2s ease-out;
         }
 
-        .footer-link:hover {
-            color: #000;
+        .footer-links a:hover {
+            color: #1a1a1a;
         }
 
         @media (max-width: 768px) {
-            .logo {
-                font-size: 3rem;
-            }
-
-            .tagline {
-                font-size: 1.1rem;
-            }
-
             .hero h1 {
                 font-size: 2rem;
                 margin-bottom: 1rem;
@@ -236,7 +300,6 @@
             .features {
                 grid-template-columns: 1fr;
                 gap: 3rem;
-                padding: 3rem 0;
             }
 
             .app-store-button {
@@ -260,53 +323,82 @@
                 font-size: 1.5rem;
             }
         }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 3rem;
+            }
+
+            .features-section {
+                padding: 3rem 0;
+            }
+
+            footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <div class="container">
-            <div class="logo">ScoreItQuickly</div>
-            <div class="tagline">Score Games Quickly</div>
+            <a href="../" class="wordmark">
+                <img src="../favicon.svg" alt="" width="28" height="28">
+                SamuraiCode
+            </a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="../">All apps</a>
+            </nav>
         </div>
     </header>
 
     <main class="container">
         <section class="hero">
+            <div class="app-id">
+                <span class="app-icon" aria-hidden="true">🏆</span>
+                <p><strong>ScoreItQuickly</strong> &middot; Score Games Quickly</p>
+            </div>
+
             <h1>The Fastest Way to Keep Score</h1>
             <p>Add players, track every point, and pick up right where you left off — with built-in scoring for Flip 7, Wingspan, Finspan, Wyrmspan, Yahtzee, and more. Works on iPhone and iPad.</p>
 
             <a href="https://apps.apple.com/us/app/scoreitquickly/id6759076325" class="app-store-button">Download on the App Store</a>
         </section>
 
-        <section class="features">
-            <div class="feature">
-                <div class="feature-icon">&#9889;</div>
-                <h3>Instant Setup</h3>
-                <p>Add players and starting scores to get going in seconds. No accounts, no configuration, just tap and play.</p>
-            </div>
+        <section class="features-section" aria-labelledby="features-title">
+            <h2 class="section-title" id="features-title">Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Instant Setup</h3>
+                    <p>Add players and starting scores to get going in seconds. No accounts, no configuration, just tap and play.</p>
+                </div>
 
-            <div class="feature">
-                <div class="feature-icon">&#127922;</div>
-                <h3>Built-in Game Templates</h3>
-                <p>Flip 7, Flip 7: With a Vengeance, Wingspan, Finspan, Wyrmspan, and Yahtzee come with the right scoring categories already set up — including expansions like Oceania and Sharks &amp; Reefs.</p>
-            </div>
+                <div class="feature">
+                    <h3>Built-in Game Templates</h3>
+                    <p>Flip 7, Flip 7: With a Vengeance, Wingspan, Finspan, Wyrmspan, and Yahtzee come with the right scoring categories already set up — including expansions like Oceania and Sharks &amp; Reefs.</p>
+                </div>
 
-            <div class="feature">
-                <div class="feature-icon">&#127942;</div>
-                <h3>Score a Player at a Time</h3>
-                <p>Wingspan, Finspan, and Wyrmspan walk you through each category one player at a time, then show a side-by-side comparison of who won what.</p>
-            </div>
+                <div class="feature">
+                    <h3>Score a Player at a Time</h3>
+                    <p>Wingspan, Finspan, and Wyrmspan walk you through each category one player at a time, then show a side-by-side comparison of who won what.</p>
+                </div>
 
-            <div class="feature">
-                <div class="feature-icon">&#128221;</div>
-                <h3>Full Score History</h3>
-                <p>Every score change is logged so you can review the complete history of any game at a glance.</p>
-            </div>
+                <div class="feature">
+                    <h3>Full Score History</h3>
+                    <p>Every score change is logged so you can review the complete history of any game at a glance.</p>
+                </div>
 
-            <div class="feature">
-                <div class="feature-icon">&#128190;</div>
-                <h3>Save &amp; Restore</h3>
-                <p>Save games in progress and come back to them anytime. Track all the games you're playing across sessions.</p>
+                <div class="feature">
+                    <h3>Save &amp; Restore</h3>
+                    <p>Save games in progress and come back to them anytime. Track all the games you're playing across sessions.</p>
+                </div>
             </div>
         </section>
     </main>
@@ -316,17 +408,17 @@
             <h2>See It in Action</h2>
             <div class="phone-mockup">
                 <div class="phone-screen">
-                    <img src="../images/scoreitquick/screenshot-1.png" alt="Colorful player list sorted by score">
+                    <img src="../images/scoreitquick/screenshot-1.png" alt="Colorful player list sorted by score" width="1320" height="2868" loading="lazy">
                 </div>
             </div>
             <div class="phone-mockup">
                 <div class="phone-screen">
-                    <img src="../images/scoreitquick/screenshot-2.png" alt="Choosing from built-in game templates">
+                    <img src="../images/scoreitquick/screenshot-2.png" alt="Choosing from built-in game templates" width="1320" height="2868" loading="lazy">
                 </div>
             </div>
             <div class="phone-mockup">
                 <div class="phone-screen">
-                    <img src="../images/scoreitquick/screenshot-3.png" alt="Category comparison grid for Wingspan">
+                    <img src="../images/scoreitquick/screenshot-3.png" alt="Category comparison grid for Wingspan" width="1320" height="2868" loading="lazy">
                 </div>
             </div>
         </div>
@@ -342,11 +434,11 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 ScoreItQuickly. Built for game night.</p>
-            <div style="margin-top: 1rem;">
-                <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
-                <a href="mailto:jeremy@samuraicode.com" class="footer-link">Contact</a>
-                <a href="../" class="footer-link">All Apps</a>
-            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="mailto:jeremy@samuraicode.com">Contact</a>
+                <a href="../">All Apps</a>
+            </nav>
         </div>
     </footer>
 </body>

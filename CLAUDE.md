@@ -16,6 +16,7 @@ SamuraiCode multi-app portfolio website. Static HTML pages with embedded CSS, no
 - `fakenews/index.html` - FakeNews app landing page (parody news video maker)
 - `fakenews/privacy-policy.html` - FakeNews privacy policy
 - `images/` - App screenshots (referenced from app pages via `../images/`)
+- `favicon.svg` - Site icon, linked from every page
 - No build process, dependencies, or server-side code
 
 ## Development Workflow

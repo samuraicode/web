@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SamuraiCode - Apps</title>
-    <meta name="description" content="Apps by SamuraiCode. Crafted with care for iOS.">
+    <title>SamuraiCode - Independent iOS Apps</title>
+    <meta name="description" content="SamuraiCode makes small, focused iPhone apps: IsItOut, ScoreItQuickly, FakeNews and Too Many Zombies.">
+    <link rel="canonical" href="https://samuraicode.com/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samuraicode.com/">
+    <meta property="og:site_name" content="SamuraiCode">
+    <meta property="og:title" content="SamuraiCode - Independent iOS Apps">
+    <meta property="og:description" content="Small, focused iPhone apps that do one thing well.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="SamuraiCode - Independent iOS Apps">
+    <meta property="twitter:description" content="Small, focused iPhone apps that do one thing well.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SamuraiCode",
+        "url": "https://samuraicode.com/",
+        "email": "jeremy@samuraicode.com"
+    }
+    </script>
 
     <style>
         * {
@@ -19,192 +44,447 @@
             color: #1a1a1a;
             background: #ffffff;
             min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        :focus-visible {
+            outline: 2px solid #1a1a1a;
+            outline-offset: 3px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1040px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        header {
-            padding: 5rem 0 2rem;
-            text-align: center;
+        .skip-link {
+            position: absolute;
+            left: 16px;
+            top: -100px;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 100px;
+            text-decoration: none;
+            z-index: 10;
         }
 
-        .logo {
-            font-size: 2.5rem;
+        .skip-link:focus {
+            top: 16px;
+        }
+
+        /* Top bar */
+
+        .site-header {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .wordmark {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 1.125rem;
+            text-decoration: none;
+        }
+
+        .wordmark img {
+            width: 28px;
+            height: 28px;
+            display: block;
+        }
+
+        .site-nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        .site-nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease-out;
+        }
+
+        .site-nav a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 6rem 0 4rem;
+        }
+
+        .hero h1,
+        .hero p {
+            max-width: 680px;
+        }
+
+        .hero h1 {
+            font-size: 3.25rem;
+            line-height: 1.1;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
             text-wrap: balance;
         }
 
-        .tagline {
-            font-size: 1.15rem;
+        .hero p {
+            font-size: 1.25rem;
             color: #666;
-            font-weight: 400;
             text-wrap: pretty;
         }
 
+        /* Apps */
+
         .apps {
-            padding: 4rem 0;
+            padding: 2rem 0 6rem;
+        }
+
+        .section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-grid {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
         .app-card {
             display: flex;
-            align-items: center;
-            gap: 2rem;
-            padding: 2.5rem;
-            border: 1px solid #f0f0f0;
+            flex-direction: column;
+            height: 100%;
+            padding: 28px;
+            border: 1px solid #ebebeb;
             border-radius: 20px;
             text-decoration: none;
-            color: inherit;
-            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+
+        .app-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             margin-bottom: 1.5rem;
         }
 
-        .app-card:hover {
-            border-color: #ddd;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-            transform: translateY(-2px);
-        }
-
         .app-icon {
-            font-size: 3.5rem;
-            flex-shrink: 0;
-        }
-
-        .app-info h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            text-wrap: balance;
-        }
-
-        .app-info p {
-            color: #666;
-            font-size: 1.05rem;
-            text-wrap: pretty;
+            display: grid;
+            place-items: center;
+            width: 64px;
+            height: 64px;
+            border-radius: 15px;
+            background: #f4f4f4;
+            font-size: 2rem;
+            line-height: 1;
         }
 
         .app-arrow {
-            margin-left: auto;
-            color: #ccc;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            transition: color 0.2s ease-out;
+            color: #999;
+            font-size: 1.25rem;
+            transition: transform 0.2s ease-out;
         }
 
-        .app-card:hover .app-arrow {
-            color: #999;
+        .app-card h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 0.375rem;
+            text-wrap: balance;
         }
+
+        .app-card p {
+            color: #666;
+            text-wrap: pretty;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-meta {
+            margin-top: auto;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: #555;
+            background: #f4f4f4;
+            padding: 3px 10px;
+            border-radius: 100px;
+        }
+
+        .tag.soon {
+            color: #1a1a1a;
+            background: #fff;
+            box-shadow: inset 0 0 0 1px #d4d4d4;
+        }
+
+        @media (hover: hover) {
+            .app-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.08);
+            }
+
+            .app-card:hover .app-arrow {
+                transform: translateX(3px);
+            }
+        }
+
+        /* Contact */
+
+        .contact {
+            background: #fafafa;
+            border-top: 1px solid #f0f0f0;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-wrap: balance;
+        }
+
+        .contact p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            text-wrap: pretty;
+        }
+
+        .button {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease-out;
+        }
+
+        @media (hover: hover) {
+            .button:hover {
+                transform: translateY(-1px);
+            }
+        }
+
+        /* Footer */
 
         footer {
-            text-align: center;
-            padding: 3rem 0;
             border-top: 1px solid #f0f0f0;
+            padding: 2rem 0;
         }
 
-        footer p {
-            color: #666;
-            font-size: 0.95rem;
+        footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .footer-link {
+        footer p,
+        .footer-links a {
             color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
             text-decoration: none;
-            margin: 0 1rem;
-            font-size: 0.95rem;
             transition: color 0.2s ease-out;
         }
 
-        .footer-link:hover {
-            color: #000;
+        .footer-links a:hover {
+            color: #1a1a1a;
         }
 
         @media (max-width: 768px) {
-            header {
-                padding: 3rem 0 1.5rem;
+            .site-nav {
+                gap: 20px;
             }
 
-            .logo {
-                font-size: 2rem;
+            .hero {
+                padding: 3.5rem 0 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .apps {
+                padding: 1rem 0 4rem;
+            }
+
+            .app-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
 
             .app-card {
-                padding: 1.5rem;
-                gap: 1.25rem;
+                padding: 24px;
             }
 
-            .app-icon {
-                font-size: 2.5rem;
+            .contact {
+                padding: 3.5rem 0;
             }
 
-            .app-info h2 {
-                font-size: 1.25rem;
+            .contact h2 {
+                font-size: 1.5rem;
             }
 
-            .app-info p {
-                font-size: 0.95rem;
+            footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
             }
         }
     </style>
 </head>
 <body>
-    <header>
+    <a href="#apps" class="skip-link">Skip to apps</a>
+
+    <header class="site-header">
         <div class="container">
-            <div class="logo">SamuraiCode</div>
-            <div class="tagline">Apps crafted with care</div>
+            <a href="./" class="wordmark">
+                <img src="favicon.svg" alt="" width="28" height="28">
+                SamuraiCode
+            </a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="#apps">Apps</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <main class="container">
-        <section class="apps">
-            <a href="isitout/" class="app-card">
-                <div class="app-icon">🎬</div>
-                <div class="app-info">
-                    <h2>IsItOut</h2>
-                    <p>Movie release countdown tracker. Never miss another release.</p>
-                </div>
-                <div class="app-arrow">&rsaquo;</div>
-            </a>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Small, focused apps for iPhone.</h1>
+                <p>SamuraiCode is an independent studio making iOS apps that do one thing well. No accounts, no clutter.</p>
+            </div>
+        </section>
 
-            <a href="scoreitquick/" class="app-card">
-                <div class="app-icon">🏆</div>
-                <div class="app-info">
-                    <h2>ScoreItQuickly</h2>
-                    <p>Score any game. Built-in templates for Flip 7, Wingspan, Yahtzee, and more.</p>
-                </div>
-                <div class="app-arrow">&rsaquo;</div>
-            </a>
+        <section class="apps" id="apps" aria-labelledby="apps-title">
+            <div class="container">
+                <h2 class="section-title" id="apps-title">Apps</h2>
+                <ul class="app-grid">
+                    <li>
+                        <a href="isitout/" class="app-card">
+                            <div class="app-card-top">
+                                <span class="app-icon" aria-hidden="true">🎬</span>
+                                <span class="app-arrow" aria-hidden="true">&rarr;</span>
+                            </div>
+                            <h3>IsItOut</h3>
+                            <p>Movie release countdown tracker. Never miss another release.</p>
+                            <div class="app-meta">
+                                <span class="tag">iPhone</span>
+                                <span class="tag">On the App Store</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="scoreitquick/" class="app-card">
+                            <div class="app-card-top">
+                                <span class="app-icon" aria-hidden="true">🏆</span>
+                                <span class="app-arrow" aria-hidden="true">&rarr;</span>
+                            </div>
+                            <h3>ScoreItQuickly</h3>
+                            <p>Score any game. Built-in templates for Flip 7, Wingspan, Yahtzee, and more.</p>
+                            <div class="app-meta">
+                                <span class="tag">iPhone</span>
+                                <span class="tag">On the App Store</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="fakenews/" class="app-card">
+                            <div class="app-card-top">
+                                <span class="app-icon" aria-hidden="true">📰</span>
+                                <span class="app-arrow" aria-hidden="true">&rarr;</span>
+                            </div>
+                            <h3>FakeNews</h3>
+                            <p>Star in your own breaking news. Parody news videos from your clips.</p>
+                            <div class="app-meta">
+                                <span class="tag">iPhone</span>
+                                <span class="tag">On the App Store</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="toomanyzombies/" class="app-card">
+                            <div class="app-card-top">
+                                <span class="app-icon" aria-hidden="true">🧟</span>
+                                <span class="app-arrow" aria-hidden="true">&rarr;</span>
+                            </div>
+                            <h3>Too Many Zombies</h3>
+                            <p>Push-your-luck zombie dice. Scavenge, survive the night, outlast your rival.</p>
+                            <div class="app-meta">
+                                <span class="tag">iPhone</span>
+                                <span class="tag soon">Coming soon</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-            <a href="fakenews/" class="app-card">
-                <div class="app-icon">📰</div>
-                <div class="app-info">
-                    <h2>FakeNews</h2>
-                    <p>Star in your own breaking news. Parody news videos from your clips.</p>
-                </div>
-                <div class="app-arrow">&rsaquo;</div>
-            </a>
-            <a href="toomanyzombies/" class="app-card">
-                <div class="app-icon">🧟</div>
-                <div class="app-info">
-                    <h2>Too Many Zombies</h2>
-                    <p>Push-your-luck zombie dice. Scavenge, survive the night, outlast your rival.</p>
-                </div>
-                <div class="app-arrow">&rsaquo;</div>
-            </a>
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title">Get in touch</h2>
+                <p>Questions, feedback, or a bug to report? Send a note anytime.</p>
+                <a href="mailto:jeremy@samuraicode.com" class="button">Email jeremy@samuraicode.com</a>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
             <p>&copy; 2026 SamuraiCode</p>
-            <div style="margin-top: 1rem;">
-                <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
-                <a href="mailto:jeremy@samuraicode.com" class="footer-link">Contact</a>
-                <a href="http://samuraicode.com" class="footer-link">SamuraiCode</a>
-            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="mailto:jeremy@samuraicode.com">Contact</a>
+            </nav>
         </div>
     </footer>
 </body>
