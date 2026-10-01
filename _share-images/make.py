@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Render the 1200x630 share images in images/og-*.png with headless Chrome.
+"""Render the 1200x630 share images in images/og-*.png, and apple-touch-icon.png,
+with headless Chrome.
 
 Run from anywhere: python3 _share-images/make.py
 Set CHROME to use a Chrome binary other than the macOS default.
@@ -28,17 +29,19 @@ def fill(template, **values):
     return html
 
 
-def render(html, out, tmp):
+def render(html, out, tmp, size='1200,630'):
     page = os.path.join(tmp, os.path.basename(out) + '.html')
     open(page, 'w').write(html)
     subprocess.run([CHROME, '--headless', '--disable-gpu', '--hide-scrollbars',
-                    '--force-device-scale-factor=1', '--window-size=1200,630',
+                    '--force-device-scale-factor=1', f'--window-size={size}',
                     f'--screenshot={out}', f'file://{page}'],
                    check=True, capture_output=True)
     print(os.path.relpath(out, ROOT))
 
 
 with tempfile.TemporaryDirectory() as tmp:
+    render(fill('touch-icon.html'), os.path.join(ROOT, 'apple-touch-icon.png'), tmp, size='180,180')
+
     icons = '\n'.join(f'            <span class="icon">{emoji}</span>' for _, _, emoji, _, _ in APPS)
     render(fill('home.html', root=ROOT, icons=icons), os.path.join(ROOT, 'images/og-home.png'), tmp)
 

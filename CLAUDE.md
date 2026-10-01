@@ -16,8 +16,8 @@ SamuraiCode multi-app portfolio website. Static HTML pages with embedded CSS, no
 - `fakenews/index.html` - FakeNews app landing page (parody news video maker)
 - `fakenews/privacy-policy.html` - FakeNews privacy policy
 - `images/` - App screenshots (referenced from app pages via `../images/`)
-- `favicon.svg` - Site icon, linked from every page
-- `_share-images/` - Templates and script for the `images/og-*.png` share images (`python3 _share-images/make.py`; not published, Jekyll skips `_` folders)
+- `favicon.svg`, `apple-touch-icon.png` - Site icons, linked from every page
+- `_share-images/` - Templates and script for `apple-touch-icon.png` and the `images/og-*.png` share images (`python3 _share-images/make.py`; not published, Jekyll skips `_` folders)
 - No build process, dependencies, or server-side code
 
 ## Development Workflow
