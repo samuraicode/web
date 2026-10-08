@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    <title>Randomly - Reminders at Unexpected Moments</title>
+    <link rel="canonical" href="https://samuraicode.com/randomly/">
+    <meta name="description" content="Short reminders that arrive at unpredictable times, so they still get noticed. Stoic quotes, breathing, water, screen breaks, or your own words.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samuraicode.com/randomly/">
+    <meta property="og:title" content="Randomly - Reminders at Unexpected Moments">
+    <meta property="og:description" content="Short reminders that arrive when you least expect them, so they still get noticed.">
+    <meta property="og:image" content="https://samuraicode.com/images/og-randomly.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Randomly: Reminders You'll Actually Notice.">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Randomly - Reminders at Unexpected Moments">
+    <meta name="twitter:description" content="Short reminders that arrive when you least expect them, so they still get noticed.">
+    <meta name="twitter:image" content="https://samuraicode.com/images/og-randomly.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            min-height: 100dvh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        :focus-visible {
+            outline: 2px solid #1a1a1a;
+            outline-offset: 3px;
+        }
+
+        .site-header {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .wordmark {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            text-decoration: none;
+        }
+
+        .wordmark img {
+            display: block;
+        }
+
+        .site-nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease-out;
+        }
+
+        .site-nav a:hover {
+            color: #1a1a1a;
+        }
+
+        .app-id {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .app-icon {
+            display: grid;
+            place-items: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            background: #f4f4f4;
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .app-id p {
+            color: #666;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .app-id strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 5rem 0 4rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            line-height: 1.2;
+            text-wrap: balance;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            text-wrap: pretty;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 16px 48px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+
+        .app-store-button:hover {
+            background: #333;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem 2rem;
+        }
+
+        .features-section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature {
+            padding-top: 1.5rem;
+            border-top: 1px solid #ebebeb;
+        }
+
+        .feature h3 {
+            font-size: 1.375rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+            font-weight: 600;
+            text-wrap: balance;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1rem;
+            text-wrap: pretty;
+        }
+
+        .screenshots {
+            text-align: center;
+            padding: 4rem 0 5rem;
+            background: #fafafa;
+            margin-top: 3rem;
+        }
+
+        .screenshots h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-wrap: balance;
+        }
+
+        .phone-mockup {
+            display: inline-block;
+            margin: 0 1rem 2rem;
+        }
+
+        .phone-screen {
+            width: 270px;
+            height: auto;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            background: #000;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .platforms {
+            text-align: center;
+            padding: 4rem 0;
+            background: #fafafa;
+            margin-top: 0;
+        }
+
+        .platforms h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-wrap: balance;
+        }
+
+        .platforms p {
+            color: #666;
+            font-size: 1.1rem;
+            text-wrap: pretty;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* Second shot at the download for anyone who scrolled the
+           screenshots — most arrivals come off a shared video and land
+           here already knowing what the app does. */
+        .platforms .app-store-button {
+            margin-top: 2.5rem;
+        }
+
+        .disclaimer {
+            text-align: center;
+            padding: 2.5rem 0;
+        }
+
+        .disclaimer p {
+            color: #999;
+            font-size: 0.95rem;
+            max-width: 640px;
+            margin: 0 auto;
+            text-wrap: pretty;
+        }
+
+        footer {
+            border-top: 1px solid #f0f0f0;
+            padding: 2rem 0;
+        }
+
+        footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        footer p,
+        .footer-links a {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            transition: color 0.2s ease-out;
+        }
+
+        .footer-links a:hover {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .app-store-button {
+                padding: 14px 40px;
+                font-size: 1rem;
+            }
+
+            .phone-screen {
+                width: 220px;
+            }
+
+            .phone-mockup {
+                margin: 0 0.5rem 1.5rem;
+            }
+
+            .screenshots h2 {
+                font-size: 1.5rem;
+            }
+
+            .platforms h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Not on the App Store yet: the button's shape, but not a link. */
+        .app-store-button.soon {
+            background: #666;
+            cursor: default;
+        }
+
+        .app-store-button.soon:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .support {
+            padding: 5rem 0;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .support h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: center;
+            text-wrap: balance;
+        }
+
+        .support h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 2rem 0 0.5rem;
+            text-wrap: balance;
+        }
+
+        .support p {
+            color: #666;
+            text-wrap: pretty;
+        }
+
+        .support a {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            .support {
+                padding: 3rem 0;
+            }
+
+            .support h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 3rem;
+            }
+
+            .features-section {
+                padding: 3rem 0;
+            }
+
+            footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+
+        /* Randomly uses its real icon rather than an emoji. */
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../" class="wordmark">
+                <img src="../favicon.svg" alt="" width="28" height="28">
+                SamuraiCode
+            </a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="../">All apps</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="app-id">
+                <span class="app-icon" aria-hidden="true"><img src="../images/randomly/icon.png" alt="" width="80" height="80"></span>
+                <p><strong>Randomly</strong> &middot; Short reminders, at moments you don't expect.</p>
+            </div>
+
+            <h1>Reminders You'll Actually Notice</h1>
+            <p>A reminder at 9:00 every morning stops working by day three. Randomly sends its reminders at unpredictable moments instead, so each one still lands.</p>
+
+            <span class="app-store-button soon">Coming Soon to the App Store</span>
+        </section>
+
+        <section class="features-section" aria-labelledby="features-title">
+            <h2 class="section-title" id="features-title">Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Never on a Schedule</h3>
+                    <p>Pick how often, from a few a day to once a month. Randomly chooses the moments, inside the hours you allow, so you can't learn to tune them out.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Libraries for Every Habit</h3>
+                    <p>Stoic lines from Marcus Aurelius and Seneca, 30-second breathing exercises, gratitude prompts, water reminders, and screen breaks.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Write Your Own</h3>
+                    <p>Make a library of your own words: affirmations for your kid's first phone, your team's values, or the mantra you keep forgetting.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="screenshots">
+        <div class="container">
+            <h2>Out of the Blue</h2>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="../images/randomly/screenshot-1.png" alt="A Stoic reminder card: Be the headland" width="552" height="1200" loading="lazy" data-pin-media="https://samuraicode.com/images/pin-randomly.png" data-pin-description="Short reminders that arrive at unpredictable times, so they still get noticed.">
+                </div>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="../images/randomly/screenshot-2.png" alt="Upcoming reminders, shown only as morning, afternoon and evening" width="552" height="1200" loading="lazy" data-pin-media="https://samuraicode.com/images/pin-randomly.png" data-pin-description="Short reminders that arrive at unpredictable times, so they still get noticed.">
+                </div>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="../images/randomly/screenshot-3.png" alt="Making a custom library called Little Affirmations" width="552" height="1200" loading="lazy" data-pin-media="https://samuraicode.com/images/pin-randomly.png" data-pin-description="Short reminders that arrive at unpredictable times, so they still get noticed.">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="support" id="support">
+            <h2>Support</h2>
+
+            <h3>My reminders aren't arriving.</h3>
+            <p>Check that notifications are on for Randomly in your iPhone's Settings, under Notifications. In the app, make sure at least one library is on and that your active window in Settings covers the hours you're awake. Focus modes can also hold notifications back.</p>
+
+            <h3>Can I see exactly when the next one comes?</h3>
+            <p>The Upcoming tab shows roughly when, morning, afternoon or evening, but keeps exact times hidden so reminders still feel unexpected. Shuffle in Upcoming picks a fresh set of times.</p>
+
+            <h3>Why is one of my libraries paused?</h3>
+            <p>The free version sends from two libraries at a time. Turn one off to switch, or unlock Randomly Plus to use as many as you like, along with libraries you write yourself.</p>
+
+            <h3>I bought Randomly Plus but it isn't unlocked.</h3>
+            <p>Open Settings in the app and tap Restore Purchases, signed in with the same Apple Account you bought with. Plus is shared with your Family Sharing group too.</p>
+
+            <h3>Something else?</h3>
+            <p>Email <a href="mailto:jeremy@samuraicode.com?subject=Randomly">jeremy@samuraicode.com</a> and we'll get back to you.</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SamuraiCode</p>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="#support">Support</a>
+                <a href="../">All Apps</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

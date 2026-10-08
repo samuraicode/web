@@ -20,6 +20,10 @@ APPS = [
     ('scoreitquick', 'ScoreItQuickly', '🏆', 'The Fastest Way to Keep Score', 'images/scoreitquick/screenshot-1.png'),
     ('fakenews', 'FakeNews', '📰', 'Star in Your Own Breaking News', 'images/fakenews/screenshot-1.png'),
     ('toomanyzombies', 'Too Many Zombies', '🧟', 'Every Roll Could Be Your Last', 'images/toomanyzombies/screenshot-1.png'),
+    # Randomly has a real icon, not an emoji; the templates take any HTML here.
+    ('randomly', 'Randomly',
+     '<img src="file://%s/images/randomly/icon.png" alt="" style="width:100%%;height:100%%;border-radius:inherit;display:block">' % ROOT,
+     "Reminders You'll Actually Notice", 'images/randomly/screenshot-1.png'),
 ]
 
 

@@ -15,6 +15,8 @@ SamuraiCode multi-app portfolio website. Static HTML pages with embedded CSS, no
 - `scoreitquick/privacy-policy.html` - ScoreItQuick privacy policy
 - `fakenews/index.html` - FakeNews app landing page (parody news video maker)
 - `fakenews/privacy-policy.html` - FakeNews privacy policy
+- `toomanyzombies/` - Too Many Zombies landing page and privacy policy
+- `randomly/` - Randomly landing page and privacy policy (uses its real icon, `images/randomly/icon.png`, instead of an emoji)
 - `images/` - App screenshots (referenced from app pages via `../images/`)
 - `favicon.svg`, `apple-touch-icon.png` - Site icons, linked from every page
 - `_share-images/` - Templates and script for the site icons, `images/og-*.png` share images and `images/pin-*.png` Pinterest pins (`python3 _share-images/make.py`; not published, Jekyll skips `_` folders)
