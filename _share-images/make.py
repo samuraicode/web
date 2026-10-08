@@ -14,17 +14,19 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 CHROME = os.environ.get('CHROME', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')
 
-# slug, name, icon emoji, headline (the page's h1), screenshot
+# slug, name, headline (the page's h1), screenshot. Icons come from images/<slug>/icon.png.
 APPS = [
-    ('isitout', 'IsItOut', '🎬', 'Never Miss Another Movie Release', 'images/screenshot-watchlist.png'),
-    ('scoreitquick', 'ScoreItQuickly', '🏆', 'The Fastest Way to Keep Score', 'images/scoreitquick/screenshot-1.png'),
-    ('fakenews', 'FakeNews', '📰', 'Star in Your Own Breaking News', 'images/fakenews/screenshot-1.png'),
-    ('toomanyzombies', 'Too Many Zombies', '🧟', 'Every Roll Could Be Your Last', 'images/toomanyzombies/screenshot-1.png'),
-    # Randomly has a real icon, not an emoji; the templates take any HTML here.
-    ('randomly', 'Randomly',
-     '<img src="file://%s/images/randomly/icon.png" alt="" style="width:100%%;height:100%%;border-radius:inherit;display:block">' % ROOT,
-     "Reminders You'll Actually Notice", 'images/randomly/screenshot-1.png'),
+    ('isitout', 'IsItOut', 'Never Miss Another Movie Release', 'images/screenshot-watchlist.png'),
+    ('scoreitquick', 'ScoreItQuickly', 'The Fastest Way to Keep Score', 'images/scoreitquick/screenshot-1.png'),
+    ('fakenews', 'FakeNews', 'Star in Your Own Breaking News', 'images/fakenews/screenshot-1.png'),
+    ('toomanyzombies', 'Too Many Zombies', 'Every Roll Could Be Your Last', 'images/toomanyzombies/screenshot-1.png'),
+    ('randomly', 'Randomly', "Reminders You'll Actually Notice", 'images/randomly/screenshot-1.png'),
 ]
+
+
+def icon(slug):
+    return (f'<img src="file://{ROOT}/images/{slug}/icon.png" alt="" '
+            'style="width:100%;height:100%;border-radius:inherit;display:block">')
 
 
 def fill(template, **values):
@@ -48,12 +50,12 @@ with tempfile.TemporaryDirectory() as tmp:
     for name, size in [('apple-touch-icon.png', 180), ('icon-192.png', 192), ('icon-512.png', 512)]:
         render(fill('touch-icon.html', size=str(size)), os.path.join(ROOT, name), tmp, size=f'{size},{size}')
 
-    icons = '\n'.join(f'            <span class="icon">{emoji}</span>' for _, _, emoji, _, _ in APPS)
+    icons = '\n'.join(f'            <span class="icon">{icon(slug)}</span>' for slug, _, _, _ in APPS)
     render(fill('home.html', root=ROOT, icons=icons), os.path.join(ROOT, 'images/og-home.png'), tmp)
 
-    for slug, name, emoji, headline, shot in APPS:
-        html = fill('app.html', root=ROOT, slug=slug, name=name, emoji=emoji, headline=headline, shot=shot)
+    for slug, name, headline, shot in APPS:
+        html = fill('app.html', root=ROOT, slug=slug, name=name, icon=icon(slug), headline=headline, shot=shot)
         render(html, os.path.join(ROOT, f'images/og-{slug}.png'), tmp)
 
-        html = fill('pin.html', root=ROOT, slug=slug, name=name, emoji=emoji, headline=headline, shot=shot)
+        html = fill('pin.html', root=ROOT, slug=slug, name=name, icon=icon(slug), headline=headline, shot=shot)
         render(html, os.path.join(ROOT, f'images/pin-{slug}.png'), tmp, size='1000,1500')

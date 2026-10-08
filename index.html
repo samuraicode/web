@@ -200,17 +200,13 @@
         }
 
         .app-icon {
-            display: grid;
-            place-items: center;
             width: 64px;
             height: 64px;
             border-radius: 15px;
-            background: #f4f4f4;
-            font-size: 2rem;
-            line-height: 1;
+            /* Hairline so light icons don't melt into the white card. */
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.06);
         }
 
-        /* Apps with a real icon instead of an emoji (Randomly). */
         .app-icon img {
             width: 100%;
             height: 100%;
@@ -427,7 +423,7 @@
                     <li>
                         <a href="isitout/" class="app-card">
                             <div class="app-card-top">
-                                <span class="app-icon" aria-hidden="true">🎬</span>
+                                <span class="app-icon" aria-hidden="true"><img src="images/isitout/icon.png" alt="" width="64" height="64"></span>
                                 <span class="app-arrow" aria-hidden="true">&rarr;</span>
                             </div>
                             <h3>IsItOut</h3>
@@ -441,7 +437,7 @@
                     <li>
                         <a href="scoreitquick/" class="app-card">
                             <div class="app-card-top">
-                                <span class="app-icon" aria-hidden="true">🏆</span>
+                                <span class="app-icon" aria-hidden="true"><img src="images/scoreitquick/icon.png" alt="" width="64" height="64"></span>
                                 <span class="app-arrow" aria-hidden="true">&rarr;</span>
                             </div>
                             <h3>ScoreItQuickly</h3>
@@ -455,7 +451,7 @@
                     <li>
                         <a href="fakenews/" class="app-card">
                             <div class="app-card-top">
-                                <span class="app-icon" aria-hidden="true">📰</span>
+                                <span class="app-icon" aria-hidden="true"><img src="images/fakenews/icon.png" alt="" width="64" height="64"></span>
                                 <span class="app-arrow" aria-hidden="true">&rarr;</span>
                             </div>
                             <h3>FakeNews</h3>
@@ -469,7 +465,7 @@
                     <li>
                         <a href="toomanyzombies/" class="app-card">
                             <div class="app-card-top">
-                                <span class="app-icon" aria-hidden="true">🧟</span>
+                                <span class="app-icon" aria-hidden="true"><img src="images/toomanyzombies/icon.png" alt="" width="64" height="64"></span>
                                 <span class="app-arrow" aria-hidden="true">&rarr;</span>
                             </div>
                             <h3>Too Many Zombies</h3>
