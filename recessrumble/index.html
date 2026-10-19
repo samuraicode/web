@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/recessrumble/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="../images/recessrumble/icon.png">
+    <meta name="theme-color" content="#ffffff">
+    <title>Recess Rumble - Party Games With No Ads</title>
+    <link rel="canonical" href="https://samuraicode.com/recessrumble/">
+    <meta name="description" content="22 quick head-to-head games for up to four players on one iPhone or iPad. No ads, ever.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samuraicode.com/recessrumble/">
+    <meta property="og:title" content="Recess Rumble - Party Games With No Ads">
+    <meta property="og:description" content="One phone, up to four friends, 22 quick games. No ads, ever.">
+    <meta property="og:image" content="https://samuraicode.com/images/og-recessrumble.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Recess Rumble: One Phone, Four Friends, No Ads.">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Recess Rumble - Party Games With No Ads">
+    <meta name="twitter:description" content="One phone, up to four friends, 22 quick games. No ads, ever.">
+    <meta name="twitter:image" content="https://samuraicode.com/images/og-recessrumble.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            min-height: 100dvh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        :focus-visible {
+            outline: 2px solid #1a1a1a;
+            outline-offset: 3px;
+        }
+
+        .site-header {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .wordmark {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            text-decoration: none;
+        }
+
+        .wordmark img {
+            display: block;
+        }
+
+        .site-nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease-out;
+        }
+
+        .site-nav a:hover {
+            color: #1a1a1a;
+        }
+
+        .app-id {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            /* Hairline so light icons don't melt into the white page. */
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.06);
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            display: block;
+        }
+
+        .app-id p {
+            color: #666;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .app-id strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 5rem 0 4rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            line-height: 1.2;
+            text-wrap: balance;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            text-wrap: pretty;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 16px 48px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+
+        .app-store-button:hover {
+            background: #333;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem 2rem;
+        }
+
+        .features-section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature {
+            padding-top: 1.5rem;
+            border-top: 1px solid #ebebeb;
+        }
+
+        .feature h3 {
+            font-size: 1.375rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+            font-weight: 600;
+            text-wrap: balance;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1rem;
+            text-wrap: pretty;
+        }
+
+        .screenshots {
+            text-align: center;
+            padding: 4rem 0 5rem;
+            background: #fafafa;
+            margin-top: 3rem;
+        }
+
+        .screenshots h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-wrap: balance;
+        }
+
+        .phone-mockup {
+            display: inline-block;
+            margin: 0 1rem 2rem;
+        }
+
+        .phone-screen {
+            width: 270px;
+            height: auto;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            background: #000;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .platforms {
+            text-align: center;
+            padding: 4rem 0;
+            background: #fafafa;
+            margin-top: 0;
+        }
+
+        .platforms h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-wrap: balance;
+        }
+
+        .platforms p {
+            color: #666;
+            font-size: 1.1rem;
+            text-wrap: pretty;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* Second shot at the download for anyone who scrolled the
+           screenshots — most arrivals come off a shared video and land
+           here already knowing what the app does. */
+        .platforms .app-store-button {
+            margin-top: 2.5rem;
+        }
+
+        .disclaimer {
+            text-align: center;
+            padding: 2.5rem 0;
+        }
+
+        .disclaimer p {
+            color: #999;
+            font-size: 0.95rem;
+            max-width: 640px;
+            margin: 0 auto;
+            text-wrap: pretty;
+        }
+
+        footer {
+            border-top: 1px solid #f0f0f0;
+            padding: 2rem 0;
+        }
+
+        footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        footer p,
+        .footer-links a {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            transition: color 0.2s ease-out;
+        }
+
+        .footer-links a:hover {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .app-store-button {
+                padding: 14px 40px;
+                font-size: 1rem;
+            }
+
+            .phone-screen {
+                width: 220px;
+            }
+
+            .phone-mockup {
+                margin: 0 0.5rem 1.5rem;
+            }
+
+            .screenshots h2 {
+                font-size: 1.5rem;
+            }
+
+            .platforms h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Not on the App Store yet: the button's shape, but not a link. */
+        .app-store-button.soon {
+            background: #666;
+            cursor: default;
+        }
+
+        .app-store-button.soon:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .support {
+            padding: 5rem 0;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .support h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: center;
+            text-wrap: balance;
+        }
+
+        .support h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 2rem 0 0.5rem;
+            text-wrap: balance;
+        }
+
+        .support p {
+            color: #666;
+            text-wrap: pretty;
+        }
+
+        .support a {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            .support {
+                padding: 3rem 0;
+            }
+
+            .support h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 3rem;
+            }
+
+            .features-section {
+                padding: 3rem 0;
+            }
+
+            footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../" class="wordmark">
+                <img src="../favicon.svg" alt="" width="28" height="28">
+                SamuraiCode
+            </a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="../">All apps</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="app-id">
+                <span class="app-icon" aria-hidden="true"><img src="../images/recessrumble/icon.png" alt="" width="80" height="80"></span>
+                <p><strong>Recess Rumble</strong> &middot; Party games for 1&ndash;4 players. No ads, ever.</p>
+            </div>
+
+            <h1>One Phone, Four Friends, No Ads</h1>
+            <p>Put the phone on the table and play. 22 quick head-to-head games where everyone gets their own side of the screen, or take on the CPU solo.</p>
+
+            <span class="app-store-button soon" aria-disabled="true">Coming soon to the App Store</span>
+        </section>
+
+        <section class="features-section" aria-labelledby="features-title">
+            <h2 class="section-title" id="features-title">Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Everyone Gets a Side</h3>
+                    <p>Each player has their own corner of the screen, facing them, so two to four people play at once without passing the phone around.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>22 Games</h3>
+                    <p>Air Hockey, Tug of War, Light Cycles, Whack-a-Mole, Connect Four, Hot Potato, Rock Paper Scissors, Playground Pass and more, each with picture instructions.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>No Ads. Ever.</h3>
+                    <p>No ads, no tracking, no accounts. Five games are free forever, every other game gets one free match, and one purchase unlocks the lot for the whole family.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="screenshots">
+        <div class="container">
+            <h2>Gather Round</h2>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="../images/recessrumble/screenshot-1.png" alt="The game menu: comic picture tiles for every game" width="552" height="1200" loading="lazy" data-pin-media="https://samuraicode.com/images/pin-recessrumble.png" data-pin-description="22 quick head-to-head games for up to four players on one iPhone or iPad. No ads, ever.">
+                </div>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="../images/recessrumble/screenshot-2.png" alt="Light Cycles: four players, each steering from their own corner" width="552" height="1200" loading="lazy" data-pin-media="https://samuraicode.com/images/pin-recessrumble.png" data-pin-description="22 quick head-to-head games for up to four players on one iPhone or iPad. No ads, ever.">
+                </div>
+            </div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="../images/recessrumble/screenshot-3.png" alt="Playground Pass: two runners dodging across the playground" width="552" height="1200" loading="lazy" data-pin-media="https://samuraicode.com/images/pin-recessrumble.png" data-pin-description="22 quick head-to-head games for up to four players on one iPhone or iPad. No ads, ever.">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="support" id="support">
+            <h2>Support</h2>
+
+            <h3>How do we play together?</h3>
+            <p>Lay the phone or iPad flat between you. Each player gets their own side of the screen, turned to face them. Pick a game, choose how many players, and press Play. To play alone, choose 1 player and pick how tough the CPU is.</p>
+
+            <h3>How do I learn a game?</h3>
+            <p>Every game's start page shows the rules in three pictures. Most games take one round to pick up.</p>
+
+            <h3>What's free?</h3>
+            <p>Tap Race, Reaction, Tic Tac Toe, Connect Four and Hot Potato are free forever, and every other game gives you one free match. One purchase unlocks every game, including new ones, and is shared with your family through Family Sharing.</p>
+
+            <h3>I bought the unlock but games are still locked.</h3>
+            <p>Make sure you're signed in with the same Apple Account you bought with, then tap a locked game and choose Restore purchase. If games still don't unlock, email us with the date of the purchase.</p>
+
+            <h3>Something else?</h3>
+            <p>Email <a href="mailto:jeremy@samuraicode.com?subject=Recess%20Rumble">jeremy@samuraicode.com</a> and we'll get back to you.</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SamuraiCode</p>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="#support">Support</a>
+                <a href="../">All Apps</a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>

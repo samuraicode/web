@@ -21,6 +21,7 @@ APPS = [
     ('fakenews', 'FakeNews', 'Star in Your Own Breaking News', 'images/fakenews/screenshot-1.png'),
     ('toomanyzombies', 'Too Many Zombies', 'Every Roll Could Be Your Last', 'images/toomanyzombies/screenshot-1.png'),
     ('randomly', 'Randomly', "Reminders You'll Actually Notice", 'images/randomly/screenshot-1.png'),
+    ('recessrumble', 'Recess Rumble', 'One Phone, Four Friends, No Ads', 'images/recessrumble/screenshot-1.png'),
 ]
 
 
